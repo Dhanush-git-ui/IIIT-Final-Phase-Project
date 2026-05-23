@@ -1,0 +1,15 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Datasets
+datasets/
+
+# Large model weights / output checkpoints
+**/bert_emotion_model/
+**/results/
