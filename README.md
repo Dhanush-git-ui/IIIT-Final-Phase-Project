@@ -1,6 +1,6 @@
 # Multimodal Emotion Recognition System 🎭🤖
 
-A deep learning based Multimodal Emotion Recognition System that combines Speech Emotion Recognition, Text Emotion Recognition, and Multimodal Fusion Learning. The project uses CNN + BiLSTM for speech processing and BERT Transformers for text understanding, then combines both modalities using a fusion network for final emotion prediction.
+A deep learning-based multimodal emotion recognition system that combines Speech Emotion Recognition, Text Emotion Recognition, and Multimodal Fusion Learning. The project uses CNN + BiLSTM for speech processing and BERT Transformers for text understanding, then combines both modalities using a fusion network for final emotion prediction.
 
 ---
 
