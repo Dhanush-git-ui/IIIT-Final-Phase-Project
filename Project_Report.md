@@ -54,7 +54,7 @@ Here are the t-SNE scatter plots:
 
 | Temporal Modelling (Speech BiLSTM) | Contextual Modelling (Text BERT) | Fusion Block (Multimodal Joint) |
 |:---:|:---:|:---:|
-| ![Speech Temporal Clusters](results/plots/temporal_clusters.png) | ![Text Contextual Clusters](results/plots/contextual_clusters.png) | ![Fusion Clusters](results/plots/fusion_clusters.png) |
+| ![Speech Temporal Clusters](Results/plots/temporal_clusters.png) | ![Text Contextual Clusters](Results/plots/contextual_clusters.png) | ![Fusion Clusters](Results/plots/fusion_clusters.png) |
 
 5. Results
 The project successfully implemented speech-only, text-only, and joint multimodal fusion emotion recognition models. The final fusion architecture achieved a test accuracy of **99.46%**, demonstrating superior robustness compared to unimodal pipelines. The project was deployed via a Flask web application, featuring client-side mono 16kHz WAV encoding and dynamic equalizer visualization.

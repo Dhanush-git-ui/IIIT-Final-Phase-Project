@@ -12,7 +12,7 @@ from transformers import BertTokenizer, BertModel
 # Configure Paths
 DATASET_PATH = r"C:\Users\dhanu\OneDrive\Desktop\IIIT GRAND FINAL\Project\datasets\TESS Toronto emotional speech set data"
 SPEECH_MODEL_PATH = r"C:\Users\dhanu\OneDrive\Desktop\IIIT GRAND FINAL\Project\models\speech_pipeline\speech_emotion_model.h5"
-PLOTS_DIR = r"C:\Users\dhanu\OneDrive\Desktop\IIIT GRAND FINAL\Project\results\plots"
+PLOTS_DIR = r"C:\Users\dhanu\OneDrive\Desktop\IIIT GRAND FINAL\Project\Results\plots"
 
 os.makedirs(PLOTS_DIR, exist_ok=True)
 
