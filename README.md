@@ -113,26 +113,34 @@ Text Embeddings
 
 ---
 
-# 📊 Results
+# 📊 Results & Evaluation
 
-## 🎤 Speech Emotion Recognition
-- Achieved near-perfect accuracy on the TESS dataset
-- Successfully predicts:
-  - Angry
-  - Happy
-  - Sad
-  - Fear
-  - Neutral
-  - Disgust
-  - Surprise
+| Model Variant | Input Modality | Test/Val Accuracy | Preprocessing | Key Architectural Blocks |
+| :--- | :--- | :--- | :--- | :--- |
+| **Speech-Only Pipeline** | Speech (WAV) | **99.00%** | Silence trimmed, 16kHz resampling, padded | Conv1D + Bidirectional LSTM (BiLSTM) |
+| **Text-Only Pipeline** | Text | **100.00%** | Tokenized via BERT Tokenizer | Fine-tuned BERT (`bert-base-uncased`) |
+| **Multimodal Fusion Pipeline** | Speech & Text | **99.46%** | Combined Speech & Text preprocessing | Concatenated features (832d) + Dense Classifier |
 
-## 💬 Text Emotion Recognition
-- Successfully fine-tuned BERT for emotion classification
-- Predicts emotions from natural language text
+---
 
-## 🔥 Fusion Model
-- Successfully combines speech and text embeddings
-- Demonstrates multimodal deep learning pipeline
+# 🎨 Cluster Separability Visualization (t-SNE)
+
+To evaluate the features learned by each block, high-dimensional representations were projected onto a 2D space using **t-SNE**:
+
+### 1. Temporal Modelling Block (Speech BiLSTM)
+* **Path**: [temporal_clusters.png](file:///c:/Users/dhanu/OneDrive/Desktop/IIIT%20GRAND%20FINAL/Project/Results/plots/temporal_clusters.png)
+* **Insight**: Acoustic cues cluster cleanly for high-energy emotions (Angry, Happy, Surprise), with minor overlaps in low-energy states (Sad, Neutral, Fear) due to vocal pitch similarities.
+![Speech Temporal Clusters](Results/plots/temporal_clusters.png)
+
+### 2. Contextual Modelling Block (Text BERT)
+* **Path**: [contextual_clusters.png](file:///c:/Users/dhanu/OneDrive/Desktop/IIIT%20GRAND%20FINAL/Project/Results/plots/contextual_clusters.png)
+* **Insight**: Since the TESS carrier phrase `"Say the word [word]"` is identical across all folders, the text itself contains no emotional information. The embeddings cluster by linguistic structure of the words rather than emotion, showing high overlap.
+![Text Contextual Clusters](Results/plots/contextual_clusters.png)
+
+### 3. Fusion Block (Joint Multimodal Representation)
+* **Path**: [fusion_clusters.png](file:///c:/Users/dhanu/OneDrive/Desktop/IIIT%20GRAND%20FINAL/Project/Results/plots/fusion_clusters.png)
+* **Insight**: Combining speech temporal features and text pooler features yields clear, highly separated emotion clusters, showing the powerful synergy of multimodal learning.
+![Fusion Joint Clusters](Results/plots/fusion_clusters.png)
 
 ---
 
@@ -193,6 +201,33 @@ python train.py
 ## Test
 
 python test.py
+
+---
+
+# 🎨 Cluster Separability t-SNE Generator
+
+To extract features across all 2,800 dataset samples and generate the 2D cluster scatter plots:
+
+```bash
+# Return to Project root directory
+cd ../..
+python visualize_clusters.py
+```
+
+This generates three scatter plots saved in `Results/plots/` demonstrating representation clustering.
+
+---
+
+# 🌐 Running the Interactive Web App
+
+Launch the local Flask server to try the live dashboard with audio recording and joint fusion prediction:
+
+```bash
+# From Project root directory
+python app.py
+```
+
+Then open `http://127.0.0.1:5000/` in your web browser.
 
 ---
 
