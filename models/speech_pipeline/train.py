@@ -52,6 +52,9 @@ for emotion_folder in os.listdir(DATASET_PATH):
                 # Load audio
                 audio, sr = librosa.load(file_path, sr=16000)
 
+                # Trim silence
+                audio, _ = librosa.effects.trim(audio)
+
                 # Extract MFCC
                 mfcc = librosa.feature.mfcc(
                     y=audio,

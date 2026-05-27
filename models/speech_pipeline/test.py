@@ -19,6 +19,9 @@ audio, sr = librosa.load(
     sr=16000
 )
 
+# Trim silence
+audio, _ = librosa.effects.trim(audio)
+
 print("Sampling Rate:", sr)
 
 

@@ -37,6 +37,7 @@ FUSION_EMOTIONS = ['angry', 'disgust', 'fear', 'happy', 'neutral', 'sad', 'surpr
 # --- PIPELINE INFERENCE HELPERS ---
 def preprocess_audio(audio_filepath):
     audio, sr = librosa.load(audio_filepath, sr=16000)
+    audio, _ = librosa.effects.trim(audio)
     mfcc = librosa.feature.mfcc(y=audio, sr=sr, n_mfcc=40).T
     max_len = 94
     if mfcc.shape[0] < max_len:
