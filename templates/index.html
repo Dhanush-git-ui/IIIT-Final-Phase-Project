@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimodal Emotion Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>🎭 Multimodal Emotion Recognition</h1>
+        <p class="subtitle">Speech, Text & Neural Fusion Dashboard</p>
+    </header>
+
+    <div class="dashboard">
+        <!-- Text Analysis -->
+        <div class="card text-card">
+            <h2>📝 Text Analysis</h2>
+            <textarea id="textInput" placeholder="Type how you are feeling right now..."></textarea>
+            <button id="predictTextBtn" class="btn-text" onclick="predictText()">
+                <span>Analyze Text Emotion</span>
+            </button>
+            
+            <div class="result-box">
+                <div class="result-label">Predicted Emotion</div>
+                <div id="textResult" class="emotion-output text-style">—</div>
+            </div>
+        </div>
+
+        <!-- Speech Analysis -->
+        <div class="card speech-card">
+            <h2>🎙️ Voice Note Analysis</h2>
+            
+            <div class="visualizer-container">
+                <canvas id="visualizerCanvas"></canvas>
+            </div>
+            
+            <div class="audio-controls">
+                <button id="startBtn" class="btn-speech" onclick="startRecording()">Record</button>
+                <button id="stopBtn" onclick="stopRecording()" disabled>Stop</button>
+            </div>
+            
+            <div class="or-divider">or</div>
+            
+            <input type="file" id="audioUpload" accept="audio/*" style="display: none;" onchange="handleAudioUpload(event)">
+            <button id="uploadBtn" class="btn-upload" onclick="document.getElementById('audioUpload').click()">
+                <span>📁 Upload Audio File</span>
+            </button>
+            
+            <audio id="audioPlayback" controls></audio>
+            <button id="predictSpeechBtn" class="btn-speech" onclick="predictSpeech()" disabled>Analyze Voice</button>
+
+            <div class="result-box">
+                <div class="result-label">Predicted Emotion</div>
+                <div id="speechResult" class="emotion-output speech-style">—</div>
+            </div>
+        </div>
+
+        <!-- Multimodal Fusion -->
+        <div class="card fusion-card">
+            <h2>🔥 Multimodal Fusion</h2>
+            <p class="fusion-instruction">
+                Combines both your <strong>Text Input</strong> and your <strong>Voice Note</strong> into a single 832-feature vector, running the Neural Fusion Network for the ultimate prediction.
+            </p>
+            
+            <button id="predictFusionBtn" class="btn-fusion" onclick="predictFusion()" disabled>
+                🚀 Run Fusion Model
+            </button>
+
+            <div class="result-box">
+                <div class="result-label">Fusion Prediction</div>
+                <div id="fusionResult" class="emotion-output fusion-style">—</div>
+                <div id="fusionConfidence" class="confidence-meter"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to external JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
