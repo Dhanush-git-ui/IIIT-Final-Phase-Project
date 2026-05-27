@@ -42,34 +42,28 @@ A deep learning-based multimodal emotion recognition system that combines Speech
 
 # 📂 Project Structure
 
+```text
 Project/
-│
 ├── datasets/
-│
 ├── models/
-│   │
 │   ├── speech_pipeline/
 │   │   ├── train.py
 │   │   ├── test.py
-│   │   ├── speech_emotion_model.h5
-│   │
+│   │   └── speech_emotion_model.h5
 │   ├── text_pipeline/
 │   │   ├── train.py
 │   │   ├── test.py
-│   │   ├── bert_emotion_model/
-│   │
-│   ├── fusion_pipeline/
+│   │   └── bert_emotion_model/
+│   └── fusion_pipeline/
 │       ├── train.py
 │       ├── test.py
-│       ├── fusion_model.keras
-│
+│       └── fusion_model.keras
 ├── Results/
 │   ├── accuracy_table.md
-│   ├── plots/
-│
+│   └── plots/
 ├── README.md
-│
-├── requirements.txt
+└── requirements.txt
+```
 
 ---
 
