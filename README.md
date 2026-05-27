@@ -215,9 +215,10 @@ This project uses the TESS Dataset (Toronto Emotional Speech Set), which contain
 
 # 👨‍💻 Author
 
-Dhanush
+Dhanush Gopavaram 
+HITAM - 23E51A0561 - CSE A
 
-AI & Deep Learning Enthusiast 🚀
+
 
 ---
 
